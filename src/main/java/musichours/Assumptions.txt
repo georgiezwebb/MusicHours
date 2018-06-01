@@ -1,0 +1,14 @@
+Assumptions:
+
+1. When the schedule is complete, songs follow songs
+2. When the schedule is complete there is no more than one bulletin per hour, all bulletins are proceeded and followed
+by songs
+3. Length of the schedule is derived from the total length of all transmissions
+4. Not all bulletins may be included in the schedule if there are more bulletins than one per hour
+5. Since bulletins cannot interrupt songs and have to begin with in a window of 120 before, and complete 120 seconds
+after a song, one hour might not contain a bulletin if it is not possible to include it in that window.
+6. All schedules start on the hour (i.e. 10 a.m., 12 p.m., etc.)
+7. Mapping of the song list to the Transmission object is handled outside ScheduleGenerator, Transmission objects are
+valid at when createSchedule() is called.
+8.If maximum length of a song is 240 seconds, a minimum of 14 ((3600 - 120)/240 = 14.5) songs can be added to an hour
+before the news bulletin window.
