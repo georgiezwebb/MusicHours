@@ -1,4 +1,4 @@
 # Music Hours
 
-## All files included!
+## Assumptions are included at README level. Program can be run from test classes or
 
