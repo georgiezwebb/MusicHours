@@ -58,6 +58,7 @@ public class ScheduleGenerator {
 
             Integer minutesRemaining = utils.getMinutesRemainingToBeFilledInSchedule(hour, SECONDS_PER_HOUR, schedule);
 
+            //existing list of songs has is nearing the hour, logic to add appropriate songs and bulletins
             fitSongsAndBulletinAroundHour(minutesRemaining);
 
             adjust = utils.getMinutesRemainingToBeFilledInSchedule(hour, SECONDS_PER_HOUR, schedule);
@@ -80,24 +81,24 @@ public class ScheduleGenerator {
     }
 
     private void fitSongsAndBulletinAroundHour(Integer minutesRemaining) {
+        /* Enough time for longest song and bulletin without exceeding 120 after hour time limit (long song +
+        bulletin = 300 seconds*/
         if (minutesRemaining == 180) {
             addSongToSchedule();
             addBulletinToSchedule();
+        /* calculate whether a song and bulletin combination exists that fits into the time remaining*/
         } else if (minutesRemaining > MAX_BEFORE_HOUR) {
-
+            //find a song that will fit with a given bulletin, before the bulletin in scheduled
             Transmission t = utils.findSongAndAddBulletin(minutesRemaining, HOUR_BUFFER, originalList, bulletins);
             if (t != null) {
                 schedule.add(t);
                 originalList.remove(t);
                 addBulletinToSchedule();
             } else {
-                if (utils.addSongOrBulletinToSchedule(minutesRemaining, MAX_BEFORE_HOUR)) {
-                    addBulletinToSchedule();
-                } else {
-                    addSongToSchedule();
-                }
+                //if no combination exists, add another song. Hour with not contain a bulletin
+                addSongToSchedule();
             }
-
+            //if within 120 second before hour, add a bulletin
         } else if (minutesRemaining == 0 || minutesRemaining <= MAX_BEFORE_HOUR) {
             addBulletinToSchedule();
         }
