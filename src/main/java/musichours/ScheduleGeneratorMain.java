@@ -11,6 +11,8 @@ import java.util.Scanner;
 
 public class ScheduleGeneratorMain {
 
+    private static final String PATH = "src/main/resources/";
+
     static final Logger LOGGER = Logger.getLogger(Transmission.class);
 
     public static void main(String[] args) throws Exception {
@@ -19,7 +21,7 @@ public class ScheduleGeneratorMain {
         String fileName = keyboard.next();
 
         ScheduleGenerator scheduleGenerator = new ScheduleGenerator();
-        String file = new File(args[0]  + fileName).getAbsolutePath();
+        String file = new File(PATH  + fileName).getAbsolutePath();
         String everything = null;
 
         BufferedReader br = new BufferedReader(new FileReader(file));
