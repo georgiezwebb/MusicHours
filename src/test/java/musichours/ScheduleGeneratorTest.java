@@ -14,7 +14,7 @@ public class ScheduleGeneratorTest {
     static final Logger LOGGER = Logger.getLogger(ScheduleGeneratorTest.class);
 
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         inputList.add(new Transmission("song 1", 240));
         inputList.add(new Transmission("song 2", 180));
         inputList.add(new Transmission("bulletin 1", 45));

@@ -25,10 +25,6 @@ public class ScheduleGeneratorUtils {
                 .orElse(null);
     }
 
-    protected Boolean addSongOrBulletinToSchedule(Integer minutesRemaining, Integer maxBeforeHour) {
-        return minutesRemaining <= maxBeforeHour;
-    }
-
     protected void checkInputList(List<Transmission> input) throws Exception {
         if (input.isEmpty()) {
             throw new Exception("Schedule list is empty!");
