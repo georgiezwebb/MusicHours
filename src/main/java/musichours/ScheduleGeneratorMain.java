@@ -5,12 +5,17 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class ScheduleGeneratorMain {
 
     public static void main(String[] args) throws Exception {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Please enter filename: ");
+        String fileName = keyboard.next();
+
         ScheduleGenerator scheduleGenerator = new ScheduleGenerator();
-        String file = new File(args[0]).getAbsolutePath();
+        String file = new File(args[0]  + fileName).getAbsolutePath();
         String everything = null;
 
         BufferedReader br = new BufferedReader(new FileReader(file));
