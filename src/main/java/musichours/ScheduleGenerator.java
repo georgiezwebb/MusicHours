@@ -95,11 +95,11 @@ public class ScheduleGenerator {
                 originalList.remove(t);
                 addBulletinToSchedule();
             } else {
-                //if no combination exists, add another song. Hour with not contain a bulletin
+                //if no combination exists, add another song. Hour will not contain a bulletin
                 addSongToSchedule();
             }
             //if within 120 second before hour, add a bulletin
-        } else if (minutesRemaining == 0 || minutesRemaining <= MAX_BEFORE_HOUR) {
+        } else {
             addBulletinToSchedule();
         }
     }
