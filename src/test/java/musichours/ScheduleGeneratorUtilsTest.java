@@ -29,8 +29,11 @@ public class ScheduleGeneratorUtilsTest {
     private Transmission bulletin2 = new Transmission("bulletin 2", 45);
     private Transmission bulletin3 = new Transmission("bulletin 3", 60);
 
+    public ScheduleGeneratorUtilsTest() throws Exception {
+    }
+
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         inputList.add(new Transmission("song 1", 240));
         inputList.add(new Transmission("song 2", 180));
         inputList.add(bulletin1);

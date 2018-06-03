@@ -12,3 +12,5 @@ after a song, one hour might not contain a bulletin if it is not possible to inc
 valid at when createSchedule() is called.
 8.If maximum length of a song is 240 seconds, a minimum of 14 ((3600 - 120)/240 = 14.5) songs can be added to an hour
 before the news bulletin window.
+
+Key

@@ -1,6 +1,8 @@
 package musichours;
 
 
+import org.apache.log4j.Logger;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,6 +10,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ScheduleGeneratorMain {
+
+    static final Logger LOGGER = Logger.getLogger(Transmission.class);
 
     public static void main(String[] args) throws Exception {
         Scanner keyboard = new Scanner(System.in);
@@ -39,7 +43,11 @@ public class ScheduleGeneratorMain {
         input.forEach(item -> {
             String title = item.split("\\s*,\\s*")[0].toString();
             Integer duration = Integer.valueOf(item.split("\\s*,\\s*")[1]);
-            transmissions.add(new Transmission(title,duration));
+            try {
+                transmissions.add(new Transmission(title, duration));
+            } catch (Exception e){
+                LOGGER.error("Invalid transmission, skipping from list: " + e.getMessage() + title + " " + duration);
+            }
         });
 
         List<Transmission> schedule = scheduleGenerator.createSchedule(transmissions);
