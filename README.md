@@ -6,3 +6,6 @@
 ## /MusicHours/src/main/resources/
 ## and enter the file name when prompted, in format <song name, duration,\n>
 
+## To run the default test file enter 'test.csv' at the prompt.
+
+
